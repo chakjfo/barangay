@@ -3,7 +3,6 @@ import shieldImageBlue from "../images/lucide_shield_blue.svg";
 import { useForm } from '@inertiajs/react';
 import { Link } from '@inertiajs/react';
 import React from 'react';
-import { useState } from "react";
 
 const Register = () => {
   const { data, setData, post, processing, errors } = useForm({
@@ -13,16 +12,13 @@ const Register = () => {
     password_confirmation: '',
   });
 
-  const [error, setError] = useState("")
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
   
 
     if (data.password !== data.password_confirmation) {
-      
-      setError("Passwords do not match!")
+      alert("Passwords do not match!");
       return;
     }
 
@@ -38,7 +34,6 @@ const Register = () => {
         </div>
 
         <div className="flex justify-start items-center mt-5 ml-10 flex-col">
-          
           <h1 className="text-4xl text-white font-bold">
             Welcome to LocalPulse a <br />
             Local Government <br />
@@ -65,7 +60,6 @@ const Register = () => {
         </div>
 
         <div className="flex justify-center items-center mt-4 flex-col">
-          <h1 className="text-0xl text-red-500">{error}</h1>
           <form onSubmit={handleSubmit}>
             <label htmlFor="name" className="block text-sm font-medium text-gray-800 mt-4">
               Name

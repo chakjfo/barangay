@@ -107,9 +107,6 @@ Route::post('/CedulaPaymentForm', [PayCedulaFormController::class, 'pay']
  Route::get('/ConfirmCedulaPayment', [ConfirmCedulaPaymentController::class, 'show']
     )->name('ConfirmCedulaPayment');
 
-Route::post('/ConfirmCedulaPayment', [ConfirmCedulaPaymentController::class, 'changePaymentStatus']
-)->name('ConfirmCedulaPayment');
-
 
 
 

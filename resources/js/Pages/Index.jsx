@@ -2,7 +2,7 @@ import shieldImage from "../images/lucide_shield.svg";
 import shieldImageBlue from "../images/lucide_shield_blue.svg";
 import { useForm } from '@inertiajs/react';
 import { Link } from '@inertiajs/react';
-import { useState } from "react";
+import React from 'react';
 
 const Index = () => {
   const { data, setData, post, processing, errors } = useForm({
@@ -11,18 +11,9 @@ const Index = () => {
     remember: false,
   });
 
-  const [error, setError] = useState("")
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    post('/login', {
-      onError: (errors) => {
-        const message = errors.email || errors.error || "An unknown error occurred.";
-        setError(message);
-
-        
-      }
-    });
+    post('/login');
   };
 
   return (
@@ -60,11 +51,7 @@ const Index = () => {
         </div>
 
         <div className="flex justify-center items-center mt-12 flex-col" >
-
-          <h1 className="text-0xl text-red-500">{error}</h1>
-
           <form onSubmit={handleSubmit}>
-            
             <label htmlFor="email" className="block text-sm font-medium text-gray-800 ">
               Email
             </label>
@@ -105,7 +92,6 @@ const Index = () => {
               </h1>
             </button>
 
-            
             <div className="flex mt-1 text-center justify-start">
               <h1 className="text-0xl"><a href="/register">Sign in</a></h1>
             </div>
